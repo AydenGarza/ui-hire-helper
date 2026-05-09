@@ -1,11 +1,17 @@
 import JobApplication from './components/jobApplicationCard'
+import type { JobApplicationDTO } from './types/ApplicationDTO'
 
 function App() {
-
+	const application: JobApplicationDTO = {
+		company: "MetLife",
+		jobTitle: "Junior Software Engineer",
+		dateApplied: new Date(),
+		applicationStatus: "Applied"
+	} 
   return (
     <>
 			<h1 className='text-3xl text-blue-500'>im cooked</h1>
-			<JobApplication company={"MetLife"} jobTitle={"Senior Meeting Lady"} dateApplied={new Date()} applicationStatus={"Applied"}></JobApplication>
+			<JobApplication applicationDTO={application}></JobApplication>
     </>
   )
 }
