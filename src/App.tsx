@@ -1,12 +1,11 @@
-import { useState } from 'react'
-import JobApplication from './jobApplicationCard'
+import JobApplication from './components/jobApplicationCard'
 
 function App() {
 
   return (
     <>
 			<h1 className='text-3xl text-blue-500'>im cooked</h1>
-			<JobApplication company={"MetLife"} jobTitle={"Senior Meeting Lady"} applicationId={2} dateApplied={new Date()} applicationStatus={"applied"}></JobApplication>
+			<JobApplication company={"MetLife"} jobTitle={"Senior Meeting Lady"} dateApplied={new Date()} applicationStatus={"Applied"}></JobApplication>
     </>
   )
 }
