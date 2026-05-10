@@ -3,6 +3,8 @@ import LoginPage from './pages/LoginPage'
 import type { JobApplicationDTO } from './types/ApplicationDTO'
 import ThemeToggleButton from './components/ThemeToggleButton'
 import { useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import KanbanPage from './pages/KanbanPage'
 
 function App() {
 	useEffect(() => {
@@ -13,7 +15,10 @@ function App() {
 	return(
 		<div className='bg-background min-h-screen relative'>
 			<ThemeToggleButton/>
-			<LoginPage />
+			<Routes>
+				<Route path="/" element={<LoginPage />}></Route>
+				<Route path="/kanban" element={<KanbanPage/>}></Route>
+			</Routes>
 		</div>
 	)
 }

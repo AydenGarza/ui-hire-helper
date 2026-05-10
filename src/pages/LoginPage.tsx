@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 	const [errorMessage, setErrorMessage] = useState<string>('');
+	
+	const navigate = useNavigate();
 	
 	async function login() {
 		setErrorMessage('');
@@ -56,6 +59,8 @@ export default function LoginPage() {
 			
 			setEmail('');
 			setPassword('');
+
+			navigate("/kanban");
 		}
 		catch {
 			setErrorMessage("something really wrong happened, try again i guess");
@@ -113,6 +118,8 @@ export default function LoginPage() {
 			
 			setEmail('');
 			setPassword('');
+
+			alert("Account successfully created. Please login to continue.");
 		}
 		catch {
 			setErrorMessage("something really wrong happened, try again i guess");
