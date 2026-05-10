@@ -1,18 +1,11 @@
 import JobApplication from './components/jobApplicationCard'
+import LoginPage from './pages/LoginPage'
 import type { JobApplicationDTO } from './types/ApplicationDTO'
 
 function App() {
-	const application: JobApplicationDTO = {
-		company: "MetLife",
-		jobTitle: "Junior Software Engineer",
-		dateApplied: new Date(),
-		applicationStatus: "Applied"
-	} 
   return (
-			<div className='flex divide-y'>
-				<JobApplication applicationDTO={application}></JobApplication>
-			</div>
-		)
+  	<LoginPage/>
+  )
 }
 
 export default App
