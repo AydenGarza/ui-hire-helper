@@ -9,11 +9,10 @@ function App() {
 		applicationStatus: "Applied"
 	} 
   return (
-    <>
-			<h1 className='text-3xl text-blue-500'>im cooked</h1>
-			<JobApplication applicationDTO={application}></JobApplication>
-    </>
-  )
+			<div className='flex divide-y'>
+				<JobApplication applicationDTO={application}></JobApplication>
+			</div>
+		)
 }
 
 export default App
