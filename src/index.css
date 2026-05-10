@@ -6,3 +6,23 @@ html, body {
 	overflow:hidden;
 	overscroll-behavior: none;
 }
+
+body {
+	background-color: var(--color-background)
+}
+
+@theme {
+	--color-background: #1E1E1E;
+	--color-textcolor: #F0F0F0;
+	--color-themebutton: #243d68;
+}
+
+body.dark {
+	--color-background: #1E1E1E;
+	--color-textcolor: #F0F0F0;
+}
+
+body.light {
+	--color-background: #F0F0F0;
+	--color-textcolor: #000000;
+}
