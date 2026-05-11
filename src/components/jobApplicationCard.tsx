@@ -12,7 +12,7 @@ const JobApplication = ({ applicationDTO }: Props) => {
 		<div className="flex gap-4 justify-between py-2 text-textcolor">
 			<div>Date Applied: {applicationDTO.date_applied}</div>
 			<div>Status: {applicationDTO.application_status}</div>
-			<div>{applicationDTO.company}</div>
+			<div>Company: {applicationDTO.company}</div>
 		</div>
 	</div>
 }

@@ -15,10 +15,12 @@ function App() {
 	return(
 		<div className='bg-background min-h-screen relative'>
 			<ThemeToggleButton/>
-			<Routes>
-				<Route path="/" element={<LoginPage />}></Route>
-				<Route path="/kanban" element={<KanbanPage/>}></Route>
-			</Routes>
+			<div className="pt-15">
+				<Routes>
+					<Route path="/" element={<LoginPage />}></Route>
+					<Route path="/kanban" element={<KanbanPage/>}></Route>
+				</Routes>
+			</div>
 		</div>
 	)
 }
