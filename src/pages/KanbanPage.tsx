@@ -28,7 +28,7 @@ export default function KanbanPage() {
 			return;
 		}
 
-		if (!appStatus || !company || !jobTitle || dateApplied) {
+		if (!appStatus || !company || !jobTitle || !dateApplied) {
 			alert('Application status, company, job title, and date applied must be provided');
 		}
 		const jwt = localStorage.getItem("access_token");
