@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 import type { JobApplicationDTO } from "../types/ApplicationDTO";
-import JobApplication from "../components/jobApplicationCard";
+import JobApplication from "../components/JobApplicationCard";
 
 export default function KanbanPage() {
 	const statuses = ["Applied", "Interviewing", "Offer", "Rejected"]

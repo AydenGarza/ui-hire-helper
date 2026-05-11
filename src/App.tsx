@@ -1,6 +1,4 @@
-import JobApplication from './components/jobApplicationCard'
 import LoginPage from './pages/LoginPage'
-import type { JobApplicationDTO } from './types/ApplicationDTO'
 import ThemeToggleButton from './components/ThemeToggleButton'
 import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
