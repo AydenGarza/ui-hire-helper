@@ -80,7 +80,10 @@ export default function KanbanPage() {
 				<input placeholder="Company" value={company} onChange={e => setCompany(e.target.value)} className="border bg-background text-textcolor flex-1 rounded"/>
 				<input placeholder="Job Title" value={jobTitle} onChange={e => setJobTitle(e.target.value)} className="border bg-background text-textcolor flex-1 rounded"/>
 				<input type="date" value={dateApplied} onChange={e => setDateApplied(e.target.value)} className="border bg-background text-textcolor rounded"/>
-				<input placeholder="Status" value={appStatus} onChange={e => setAppStatus(e.target.value)} className="border bg-background text-textcolor rounded" />
+				<select value={appStatus} onChange={e => setAppStatus(e.target.value)} className="border bg-background text-textcolor rounded p-2">
+					<option value="">Select Status</option>
+					{statuses.map(status => <option key={status} value={status}>{status}</option>)}
+				</select>
 				<button className="border p-1 bg-green-400 rounded" onClick={createApplication}>Create</button>
 			</div>
 		</div>
