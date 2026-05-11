@@ -15,6 +15,31 @@ const JobApplication = ({ applicationDTO, onUpdateCallback }: Props) => {
 	const [dateApplied, setDateApplied] = useState(applicationDTO.date_applied)
 	const [appStatus, setAppStatus] = useState(applicationDTO.application_status)
 
+	async function deleteApplication() {
+		if (!confirm(`Are you sure you want to delete your application for ${applicationDTO.job_title} at ${applicationDTO.company}?`)) {
+			return;
+		}
+
+		const jwt = localStorage.getItem("access_token");
+		const req = {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${jwt}`
+			},
+			body: JSON.stringify({
+				"company": company,
+				"job_title": jobTitle,
+			})
+		}
+		
+		const response = await fetch("http://localhost:8000/api/applications", req);
+		if (!response.ok) {
+			alert('Something went wrong.. please try again')
+		}
+		setUpdating(false);
+		onUpdateCallback();
+	}
 	
 	async function updateApplication () {
 		if (!statuses.includes(appStatus)) {
@@ -61,8 +86,7 @@ const JobApplication = ({ applicationDTO, onUpdateCallback }: Props) => {
 	
 	
 	
-	
-	return <div className="border rounded-lg px-2 m-2" onClick={() => setUpdating(true)}>
+	return <div className="border border-blue-400 rounded-lg px-2 m-2" onClick={() => setUpdating(true)}>
 		<div className="text-textcolor font-semibold py-2">
 			{applicationDTO.job_title}
 		</div>
@@ -81,7 +105,8 @@ const JobApplication = ({ applicationDTO, onUpdateCallback }: Props) => {
 							{statuses.map(status => <option key={status} value={status}>{status}</option>)}
 						</select>
 						<button className="border p-1 bg-green-400 rounded" onClick={(e) => { e.stopPropagation();  updateApplication() }}>Update</button>
-						<button className="border p-1 bg-orange-400 rounded" onClick={(e) => { e.stopPropagation();  setUpdating(false)}}> Finished</button>
+						<button className="border p-1 bg-orange-400 rounded" onClick={(e) => { e.stopPropagation(); setUpdating(false) }}> Finished</button>
+						<button className="border p-1 bg-red-400 rounded" onClick={(e) => { e.stopPropagation(); deleteApplication(); }}>Delete</button>
 					</div>
 				</div>
 			)}

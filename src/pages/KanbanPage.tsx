@@ -61,13 +61,13 @@ export default function KanbanPage() {
 	useEffect(() => { getApplications() }, [])
 	
 	return (
-		<div className="bg-background flex flex-col gap-3">
+		<div className="bg-background flex flex-col gap-3 justify-center">
 
-			<div className="flex gap-4 min-w-0 flex-1">
+			<div className="flex gap-4 min-w-0 flex-1 ">
 				{
 					statuses.map(status => (
-						<div key={status} className="flex-1 p-3">
-							<h1>{status}</h1>
+						<div key={status} className="flex-1 p-3 border border-blue-900 rounded-4xl">
+							<h1 className="text-textcolor ">{status}</h1>
 							{
 								applications.filter(a => a.application_status === status).map(application => ( <JobApplication key={application.id} applicationDTO={application} onUpdateCallback={getApplications}></JobApplication>))
 							}
