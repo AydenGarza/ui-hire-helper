@@ -4,7 +4,7 @@ import type { JobApplicationDTO } from "../types/ApplicationDTO";
 import JobApplication from "../components/jobApplicationCard";
 
 export default function KanbanPage() {
-
+	const statuses = ["Applied", "Interviewing", "Offer", "Rejected"]
 	const [company, setCompany] = useState('')
 	const [jobTitle, setJobTitle] = useState('')
 	const [dateApplied, setDateApplied] = useState('')
@@ -23,7 +23,30 @@ export default function KanbanPage() {
 	}
 
 	async function createApplication() {
+		if (!statuses.includes(appStatus)) {
+			alert("Invalid application status, choose from Applied Interviewing Offer or Rejected")
+			return;
+		}
+		const jwt = localStorage.getItem("access_token");
+		const req = {
+			method: "POST",
+			headers: {
+				"Content-Type": "Application/json",
+				"Authorization": `Bearer ${jwt}`
+			},
+			body: JSON.stringify({
+				"company": company,
+				"job_title": jobTitle,
+				"date_applied": dateApplied,
+				"application_status": appStatus
+			})
+		}
 		
+		const response = await fetch("http://localhost:8000/api/applications", req);
+		if (!response.ok) {
+			alert('Something went wrong.. please try again')
+		}
+		getApplications();
 	}
 	
 	const [applications, setApplications] = useState<JobApplicationDTO[]>([]);
@@ -42,7 +65,6 @@ export default function KanbanPage() {
 				<input placeholder="Status" value={appStatus} onChange={e => setAppStatus(e.target.value)} className="border bg-background text-textcolor rounded" />
 				<button className="border p-1 bg-green-400 rounded" onClick={createApplication}>Create</button>
 			</div>
-			
 		</div>
 	)
 }
