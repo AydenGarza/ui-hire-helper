@@ -10,10 +10,10 @@ const statuses = ["Applied", "Interviewing", "Offer", "Rejected"];
 
 const JobApplication = ({ applicationDTO, onUpdateCallback }: Props) => {
 	const [updating, setUpdating] = useState(false);
-	const [company, setCompany] = useState('')
-	const [jobTitle, setJobTitle] = useState('')
-	const [dateApplied, setDateApplied] = useState('')
-	const [appStatus, setAppStatus] = useState('')
+	const [company, setCompany] = useState(applicationDTO.company)
+	const [jobTitle, setJobTitle] = useState(applicationDTO.job_title)
+	const [dateApplied, setDateApplied] = useState(applicationDTO.date_applied)
+	const [appStatus, setAppStatus] = useState(applicationDTO.application_status)
 
 	
 	async function updateApplication () {
