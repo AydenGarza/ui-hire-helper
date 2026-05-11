@@ -1,8 +1,9 @@
-import type { ApplicationStatus } from "./ApplicationStatus"
 
 export type JobApplicationDTO = {
 	company: string
-	jobTitle: string
-	dateApplied: Date
-	applicationStatus: ApplicationStatus
+	job_title: string
+	date_applied: string
+	application_status: string
+	email: string
+	id: number
 }
