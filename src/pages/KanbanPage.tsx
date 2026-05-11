@@ -31,11 +31,11 @@ export default function KanbanPage() {
 				applications.map(application => ( <JobApplication key={application.id} applicationDTO={application}></JobApplication>))
 			}
 
-			<div className = "flex">
-				<input placeholder="Company..." value={company} onChange={e => setCompany(e.target.value)}/>
-				<input placeholder="Job Title..." value={jobTitle} onChange={e => setJobTitle(e.target.value)}/>
-				<input placeholder="Date Applied... YYYY-MM-DD" value={dateApplied} onChange={e => setDateApplied(e.target.value)}/>
-				<input placeholder="Status..." value={appStatus} onChange={e => setAppStatus(e.target.value)}/>
+			<div className = "flex p-4 gap-5">
+				<input placeholder="Company" value={company} onChange={e => setCompany(e.target.value)} className="border bg-background text-textcolor flex-1"/>
+				<input placeholder="Job Title" value={jobTitle} onChange={e => setJobTitle(e.target.value)} className="border bg-background text-textcolor flex-1"/>
+				<input placeholder="Date YYYY-MM-DD" value={dateApplied} onChange={e => setDateApplied(e.target.value)} className="border bg-background text-textcolor"/>
+				<input placeholder="Status" value={appStatus} onChange={e => setAppStatus(e.target.value)} className="border bg-background text-textcolor"/>
 			</div>
 		</div>
 	)
