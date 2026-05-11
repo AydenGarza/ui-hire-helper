@@ -24,14 +24,18 @@ export default function KanbanPage() {
 
 	async function createApplication() {
 		if (!statuses.includes(appStatus)) {
-			alert("Invalid application status, choose from Applied Interviewing Offer or Rejected")
+			alert("Invalid application status, choose from Applied Interviewing Offer or Rejected");
 			return;
+		}
+
+		if (!appStatus || !company || !jobTitle || dateApplied) {
+			alert('Application status, company, job title, and date applied must be provided');
 		}
 		const jwt = localStorage.getItem("access_token");
 		const req = {
 			method: "POST",
 			headers: {
-				"Content-Type": "Application/json",
+				"Content-Type": "application/json",
 				"Authorization": `Bearer ${jwt}`
 			},
 			body: JSON.stringify({
@@ -46,6 +50,10 @@ export default function KanbanPage() {
 		if (!response.ok) {
 			alert('Something went wrong.. please try again')
 		}
+		setCompany('');
+		setJobTitle('');
+		setDateApplied('');
+		setAppStatus('');
 		getApplications();
 	}
 	
