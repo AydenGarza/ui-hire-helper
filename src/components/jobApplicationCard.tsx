@@ -12,7 +12,7 @@ const JobApplication = ({ applicationDTO, onUpdateCallback }: Props) => {
 
 	const [updating, setUpdating] = useState(false);
 	
-	return <div className="border rounded-lg px-2 m-2">
+	return <div className="border rounded-lg px-2 m-2" onClick={() => setUpdating(true)}>
 		<div className="text-textcolor font-semibold py-2">
 			{applicationDTO.job_title}
 		</div>
@@ -20,6 +20,7 @@ const JobApplication = ({ applicationDTO, onUpdateCallback }: Props) => {
 			<div>Date Applied: {applicationDTO.date_applied}</div>
 			<div>Status: {applicationDTO.application_status}</div>
 			<div>Company: {applicationDTO.company}</div>
+			{updating ? "true": "false"}
 		</div>
 	</div>
 }
