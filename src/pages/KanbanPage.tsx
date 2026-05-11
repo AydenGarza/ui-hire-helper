@@ -62,9 +62,19 @@ export default function KanbanPage() {
 	
 	return (
 		<div className="bg-background flex flex-col gap-3">
-			{
-				applications.map(application => ( <JobApplication key={application.id} applicationDTO={application}></JobApplication>))
-			}
+
+			<div className="flex gap-4 -4 flex-1">
+				{
+					statuses.map(status => (
+						<div key={status} className="flex-1 p-3">
+							<h1>{status}</h1>
+							{
+								applications.filter(a => a.application_status === status).map(application => ( <JobApplication key={application.id} applicationDTO={application}></JobApplication>))
+							}
+						</div>
+					))
+				}
+			</div>
 
 			<div className = "flex p-4 gap-5">
 				<input placeholder="Company" value={company} onChange={e => setCompany(e.target.value)} className="border bg-background text-textcolor flex-1 rounded"/>
