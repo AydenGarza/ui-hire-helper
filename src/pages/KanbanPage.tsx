@@ -21,6 +21,10 @@ export default function KanbanPage() {
 		const responseData = await response.json();
 		setApplications(responseData);
 	}
+
+	async function createApplication() {
+		
+	}
 	
 	const [applications, setApplications] = useState<JobApplicationDTO[]>([]);
 	useEffect(() => { getApplications() }, [])
@@ -32,11 +36,13 @@ export default function KanbanPage() {
 			}
 
 			<div className = "flex p-4 gap-5">
-				<input placeholder="Company" value={company} onChange={e => setCompany(e.target.value)} className="border bg-background text-textcolor flex-1"/>
-				<input placeholder="Job Title" value={jobTitle} onChange={e => setJobTitle(e.target.value)} className="border bg-background text-textcolor flex-1"/>
-				<input placeholder="Date YYYY-MM-DD" value={dateApplied} onChange={e => setDateApplied(e.target.value)} className="border bg-background text-textcolor"/>
-				<input placeholder="Status" value={appStatus} onChange={e => setAppStatus(e.target.value)} className="border bg-background text-textcolor"/>
+				<input placeholder="Company" value={company} onChange={e => setCompany(e.target.value)} className="border bg-background text-textcolor flex-1 rounded"/>
+				<input placeholder="Job Title" value={jobTitle} onChange={e => setJobTitle(e.target.value)} className="border bg-background text-textcolor flex-1 rounded"/>
+				<input placeholder="Date YYYY-MM-DD" value={dateApplied} onChange={e => setDateApplied(e.target.value)} className="border bg-background text-textcolor rounded"/>
+				<input placeholder="Status" value={appStatus} onChange={e => setAppStatus(e.target.value)} className="border bg-background text-textcolor rounded" />
+				<button className="border p-1 bg-green-400 rounded" onClick={createApplication}>Create</button>
 			</div>
+			
 		</div>
 	)
 }
