@@ -69,7 +69,7 @@ export default function KanbanPage() {
 						<div key={status} className="flex-1 p-3">
 							<h1>{status}</h1>
 							{
-								applications.filter(a => a.application_status === status).map(application => ( <JobApplication key={application.id} applicationDTO={application}></JobApplication>))
+								applications.filter(a => a.application_status === status).map(application => ( <JobApplication key={application.id} applicationDTO={application} onUpdateCallback={getApplications}></JobApplication>))
 							}
 						</div>
 					))
